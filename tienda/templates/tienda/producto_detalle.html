@@ -13,7 +13,7 @@
     <li><strong>¿Es VIP?:</strong> {{ producto.vip|yesno:"Sí,No" }}</li>
 </ul>
 <hr>
-<a href="{% url 'listado' %}">Volver</a> | 
+<a href="{% url 'listar' %}">Volver</a> | 
 <a href="{% url 'editar' producto.pk %}">Editar</a>
 
 {% endblock %}
