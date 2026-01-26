@@ -40,7 +40,7 @@ class Producto (models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f'{self.producto}'
+        return f'{self.nombre}'
     
     class Meta:
         verbose_name_plural = 'Productos'
@@ -56,7 +56,7 @@ class Compra (models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f'Compra {self.producto} de {self.username}'
+        return f'Compra {self.producto.nombre} de {self.usuario.username}'
     
     class Meta:
         verbose_name_plural = 'Compras'

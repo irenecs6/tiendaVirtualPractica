@@ -4,4 +4,16 @@
 
 {% block contenido %}
 
+<h2>Detalle de: {{ producto.nombre }}</h2>
+<ul>
+    <li><strong>Marca:</strong> {{ producto.marca.nombre }}</li>
+    <li><strong>Modelo:</strong> {{ producto.modelo }}</li>
+    <li><strong>Stock:</strong> {{ producto.unidades }} unidades</li>
+    <li><strong>Precio:</strong> {{ producto.precio }}€</li>
+    <li><strong>¿Es VIP?:</strong> {{ producto.vip|yesno:"Sí,No" }}</li>
+</ul>
+<hr>
+<a href="{% url 'listado' %}">Volver</a> | 
+<a href="{% url 'editar' producto.pk %}">Editar</a>
+
 {% endblock %}

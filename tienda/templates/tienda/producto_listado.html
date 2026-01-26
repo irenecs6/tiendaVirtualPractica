@@ -1,8 +1,42 @@
+
 {% extends 'tienda/base.html' %}
 
 {% block titulo %}Listar{% endblock %}
 
 {% block contenido %}
 
-    <h2></h2>
+<h2>Listado de Productos</h2>
+<a href="{% url 'crear' %}">Nuevo Producto</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- {% for producto in object_list %}productos -->
+            {% for producto in productos %}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.modelo|default:"-" }}</td>
+            <td>{{ producto.marca.nombre }}</td>
+            <td>{{ producto.precio }}€</td>
+            <td>
+                <a href="{% url 'detalle' producto.pk %}">Ver</a> |
+                <a href="{% url 'editar' producto.pk %}">Editar</a> |
+                <a href="{% url 'borrar' producto.pk %}">Borrar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>No hay productos registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

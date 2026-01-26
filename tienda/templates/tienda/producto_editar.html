@@ -4,4 +4,16 @@
 
 {% block contenido %}
 
+<h2>Editar Producto: {{ object.nombre }}</h2>
+<hr>
+
+<form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <button type="submit">Actualizar</button>
+    <a href="{% url 'listado' %}">Cancelar</a>
+</form>
+
 {% endblock %}

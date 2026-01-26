@@ -13,7 +13,8 @@ class CrearProducto(CreateView):
 class ListadoProducto (ListView):
     model = Producto
     template_name = 'tienda/producto_listado.html'
-
+    context_object_name = 'productos'
+    
 class DetalleProducto (DetailView):
     model = Producto
     template_name = 'tienda/producto_detalle.html'
