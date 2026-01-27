@@ -1,0 +1,20 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido %}
+
+<h1>Perfil</h1>
+
+{{user.username}}
+Saldo: {{user.saldo}}
+Vip: {{user.vip}}
+
+
+<table>
+    <ul>
+        {%for compra in compras%}
+            <li>{{compra}}</li>
+        {% endfor %}
+    </ul>
+</table>
+
+{% endblock %}

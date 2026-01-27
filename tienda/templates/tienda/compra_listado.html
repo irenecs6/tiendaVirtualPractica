@@ -1,0 +1,44 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido %}
+
+<h1>Lista de Productos</h1>
+<table>
+    <tr>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Modelo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Marca</th>
+        <th>Acciones</th>
+    </tr>
+    <tbody>
+        {% for producto in productos %}
+    <tr>
+        <td>
+            {{ producto.modelo }}
+        </td>
+        <td>
+            {{ producto.precio }}
+        </td>
+        <td>
+            {{ producto.unidades }}
+        </td>
+        <td>
+            {{ producto.marca }}
+        </td>
+                
+            <form method="get">
+                {% csrf_token %}
+                {{ compra_form.as_div }}
+                <button type="submit" class="btn btn-sm btn-info">Comprar</button>
+            </form>
+        </td>
+            
+        </tr>
+
+        {% empty %}
+        <p> No hay productos</p>
+        {% endfor %}
+{% endblock%}
