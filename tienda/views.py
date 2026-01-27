@@ -86,5 +86,6 @@ class Perfil(TemplateView):
         contexto ['compras'] = Compra.objects.filter(usuario = self.request.user)
         return contexto
     
-def informe(request):
-    topclientes = Compra.objects.annotate(total_gastado = Sum('compras_importe')).order_by('-total_gastado')
+def informes(request):
+    topclientes = Compra.objects.annotate(total_gastado = Sum('compras_importe')).order_by('-total_gastado')[:10]
+    return render(request, 'tienda/informes.html', {Cliente})

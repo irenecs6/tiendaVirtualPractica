@@ -13,6 +13,6 @@ urlpatterns = [
 
     path('perfil', Perfil.as_view(), name='perfil'),
     
-    path('informe', informe, name='informe'),
+    path('informes', informes, name='informes'),
 
 ]
